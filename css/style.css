@@ -52,3 +52,8 @@ button:hover {
     margin: 10px;
     display: none;
 }
+
+.restart{
+    display: none;
+    margin-top: 10px;
+}

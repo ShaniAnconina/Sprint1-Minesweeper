@@ -72,6 +72,7 @@ function GameOver() {
    revealAllMines()
    document.querySelector('.time').style.color = 'red'
    document.querySelector('.game').style.display = 'inline-block'
+   document.querySelector('.restart').style.display = 'inline-block'
 }
 
 function isVictory() {
