@@ -17,16 +17,15 @@ function renderBoard(board) {
     for (var i = 0; i < gLevel.size; i++) {
         strHTML += `\n<tr>`
         for (var j = 0; j < gLevel.size; j++) {
-            var negsCount = setMinesNegsCount(i, j, board)
+            const negsCount = setMinesNegsCount(i, j, board)
             var className = (board[i][j].isShown) ? `shown` : ``
             // var cellClass = getClassName({ i: i, j: j })
             if (board[i][j].isShown) {
-                // cell = (board[i][j].isMine) ? `${MINE}` : `${negsCount}`
                 if (board[i][j].isMine) {
                     cell = `${MINE}`
                 } else {
                     cell = `${negsCount}`
-                    if(!negsCount) cell = ` `
+                    if (!negsCount) cell = ` `
                 }
             } else if (board[i][j].isMarked) {
                 cell = `${FLAG}`
@@ -49,7 +48,6 @@ function countNegs(board) {
             currCell.minesAroundCount = setMinesNegsCount(i, j, board)
         }
     }
-
 }
 
 
@@ -67,9 +65,20 @@ function setMinesNegsCount(cellI, cellJ, board) {
 }
 
 
-function getRandomMines(minesAmount) {
+function getRandomMines(minesAmount, currI, currJ) {
     for (var i = 0; i < minesAmount; i++) {
-        gBoard[getRandomInt(0, gLevel.size)][getRandomInt(0, gLevel.size)].isMine = true
+        var cellI = getRandomInt(0, gLevel.size)
+        var cellJ = getRandomInt(0, gLevel.size)
+        while (currI === cellI && currJ === cellJ) {
+            // if( currI === cellI && currJ === cellJ ){
+            cellI = getRandomInt(0, gLevel.size)
+            cellJ = getRandomInt(0, gLevel.size)
+        }
+        while (gBoard[cellI][cellJ].isMine) {
+            cellI = getRandomInt(0, gLevel.size)
+            cellJ = getRandomInt(0, gLevel.size)
+        }
+        gBoard[cellI][cellJ].isMine = true
     }
 }
 
@@ -81,7 +90,7 @@ function getRandomInt(min, max) {
 }
 
 
-function startTimer() {
+function timer() {
     gStartTime = Date.now()
     gTimeInterval = setInterval(() => {
         const seconds = (Date.now() - gStartTime) / 1000
