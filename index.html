@@ -10,19 +10,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body onload="initGame()">
+<body onload="initGame()" oncontextmenu="return false">
 
     <h1>Mine Sweeper</h1>
-
+    <div class="time">00:00</div>
+    <p class="game-over">GAME OVER</p>
+    <br>
+    <button onclick="onChooseLevel(4,2)">Beginner</button>
+    <button onclick="onChooseLevel(8,14)">Medium</button>
+    <button onclick="onChooseLevel(12,32)">Expert</button>
+    <br>
     <table>
         <tbody class="board">
         </tbody>
     </table>
+    <p class="footer">By Shani Anconina</p>
 
-
-    <footer>
-        <p>By Shani Anconina</p>
-    </footer>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -1,15 +1,31 @@
 body {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-margin: 50px;
+    margin: 50px;
 }
-
 
 table {
     border: 1px solid black;
     display: inline-block;
     border-collapse: collapse;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(203, 203, 203);
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    width: 70px;
+    height: 27px;
+    margin-bottom: 20px;
+
+}
+
+button:hover {
+    background-color: rgb(33, 33, 33);
+
 }
 
 .cell {
@@ -19,3 +35,20 @@ table {
     width: 50px;
 }
 
+.shown {
+    background-color: rgb(225, 225, 225);
+
+}
+
+.time {
+    font-size: 25px;
+    margin: 10px;
+    display: inline-block;
+    padding: 3px 7px;
+}
+
+.game-over {
+    font-size: 40px;
+    margin: 10px;
+    display: none;
+}
