@@ -16,9 +16,9 @@ function initGame() {
    firstCLickTimer = true
    firstCLickMines = true
    document.querySelector('.game').style.display = 'none'
-   document.querySelector('.restart').style.display = 'none'
    document.querySelector('.time').innerText = '00:00'
    document.querySelector('.time').style.color = 'black'
+   document.querySelector('.restart').innerText = '😊'
    gBoard = buildBoard()
    renderBoard(gBoard)
 }
@@ -62,8 +62,10 @@ function onChooseLevel(size = 4, mines = 2) {
 function checkGameOver(i, j) {
    if (gBoard[i][j].isMine) {
       GameOver()
+      document.querySelector('.restart').innerText = '😭'
    } else if (!gBoard[i][j].isMine) {
       isVictory()
+      document.querySelector('.restart').innerText = '😎'
    }
 
 }
@@ -74,7 +76,6 @@ function GameOver() {
    revealAllMines()
    document.querySelector('.time').style.color = 'red'
    document.querySelector('.game').style.display = 'inline-block'
-   document.querySelector('.restart').style.display = 'inline-block'
 }
 
 function isVictory() {
