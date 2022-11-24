@@ -15,6 +15,8 @@ function initGame() {
    gGame.isOn = true
    firstCLickTimer = true
    firstCLickMines = true
+   document.querySelector('.game').style.display = 'none'
+   document.querySelector('.restart').style.display = 'none'
    document.querySelector('.time').innerText = '00:00'
    document.querySelector('.time').style.color = 'black'
    gBoard = buildBoard()
