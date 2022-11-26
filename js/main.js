@@ -44,6 +44,7 @@ function cellClicked(elCell, i, j) {
    if (!gBoard[i][j].isMine) audioClick.play()
    else audioLose.play()
    gBoard[i][j].isShown = true
+   isVictory()
    renderBoard(gBoard)
 }
 
@@ -112,11 +113,11 @@ function checkGameOver(i, j) {
          document.querySelector('.lives').innerText = '🤍'
       }
       gLivesCounter--
-   } else if (!gBoard[i][j].isMine && gLivesCounter === 1) {
-      isVictory()
+   // } else if (!gBoard[i][j].isMine) {
+   //    isVictory()
    }
-
 }
+
 
 function GameOver() {
    gGame.isOn = false
@@ -132,7 +133,7 @@ function isVictory() {
          if (!gBoard[i][j].isShown) {
             if (!gBoard[i][j].isMarked) {
                return
-               
+
             }
          }
       }
