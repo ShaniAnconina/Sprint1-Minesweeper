@@ -13,21 +13,22 @@
 <body onload="initGame()" oncontextmenu="return false">
 
     <h1>Mine Sweeper</h1>
-    <button class="restart" onclick="initGame()">😊</button>
+    <button class="restart" title="Restart Game" onclick="initGame()">😊</button>
     <br>
-
     <div class="time">00:00</div>
+    <div class="lives">🤍🤍🤍</div>
     <br>
     <button onclick="onChooseLevel(4,2)">Beginner</button>
     <button onclick="onChooseLevel(8,14)">Medium</button>
     <button onclick="onChooseLevel(12,32)">Expert</button>
     <br>
-    <p class="game">GAME OVER</p>
-    <br>
     <table>
         <tbody class="board">
         </tbody>
     </table>
+    <br>
+    <p class="game">GAME OVER</p>
+    <br>
     <p class="footer">By Shani Anconina</p>
 
     <script src="js/utils.js"></script>
